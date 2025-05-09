@@ -232,7 +232,7 @@ header {
 /*Reseptien kuvat ja tummennettu tausta*/
 .pasta-carbonara {
     background-image: var(--tummennus),
-      url("kuvat/pastacarbonara.jpg");
+      url("pastacarbonara.jpg");
   }
   
   .kinuskikakku {
