@@ -237,72 +237,72 @@ header {
   
   .kinuskikakku {
     background-image: var(--tummennus),
-      url("Reseptipankki/kuvat/kinuskikakku.jpg");
+      url("kinuskikakku.jpg");
   }
   
   .kasvismunakas {
     background-image: var(--tummennus),
-      url("kuvat/kasvismunakas.jpg");
+      url("kasvismunakas.jpg");
   }
   
   .avokado-toast {
     background-image: var(--tummennus),
-      url("kuvat/avokadotoast.jpg");
+      url("avokadotoast.jpg");
   }
 
   .lohikeitto {
     background-image: var(--tummennus),
-      url("kuvat/lohikeitto.jpg");
+      url("lohikeitto.jpg");
   }
   
   .kanapasta {
     background-image: var(--tummennus),
-      url("kuvat/kanapasta.jpg");
+      url("kanapasta.jpg");
   }
 
   .marjasmoothie {
     background-image: var(--tummennus),
-      url("kuvat/marjasmoothie.jpg");
+      url("marjasmoothie.jpg");
   }
 
   .kaurapuuro {
     background-image: var(--tummennus),
-      url("kuvat/kaurapuuro.jpg");
+      url("kaurapuuro.jpg");
   }
 
   .suklaamousse {
     background-image: var(--tummennus),
-      url("kuvat/suklaamousse.jpg");
+      url("suklaamousse.jpg");
   }
 
   .mustikkapiirakka {
     background-image: var(--tummennus),
-      url("kuvat/mustikkapiirakka.jpg");
+      url("mustikkapiirakka.jpg");
   }
 
   .tofuwok {
     background-image: var(--tummennus),
-      url("kuvat/tofuwok.jpg");
+      url("tofuwok.jpg");
   }
 
   .falafel {
     background-image: var(--tummennus),
-      url("kuvat/falafel.jpg");
+      url("falafel.jpg");
   }
 
   .vappumunkit {
     background-image: var(--tummennus),
-      url("kuvat/vappumunkit.jpg");
+      url("vappumunkit.jpg");
   }
 
   .sima {
     background-image: var(--tummennus),
-      url("kuvat/sima.jpg");
+      url("sima.jpg");
   }
 
   .tippaleivat {
     background-image: var(--tummennus),
-      url("kuvat/tippaleivät.jpg");
+      url("tippaleivät.jpg");
   }
 
   
