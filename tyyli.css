@@ -157,7 +157,7 @@ header {
 
 /* Hero-osio */
 .hero {
-    background-image: var(--tummennus), url("kuvat/taustakuva.jpg");
+    background-image: var(--tummennus), url("taustakuva.jpg");
     background-size: cover;
     background-position: center;
     color: var(--valkoinen);
