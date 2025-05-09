@@ -1,0 +1,663 @@
+/* Muuttujat */
+:root {
+  /* Värit */
+  --paavari: #4e704d;
+  --taustavari: beige;
+  --valkoinen: white;
+
+  /* Fontit */
+  --fontti-leipateksti: "Open Sans", serif;
+  --fontti-otsikko: "Playfair Display", serif;
+
+  /* Efektit */
+  --tummennus: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)); /* Taustakuvien päälle, jotta teksti erottuu paremmin */
+  --tekstivarjo: 1px 1px 3px rgba(0,0,0,0.8),
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
+}
+
+/* Box-sizing kaikille elementeille */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/* Yleiset tyylit */
+html, body {
+  height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fontti-leipateksti);
+    margin: 0;
+    padding: 0;
+    background-color: var(--taustavari);
+}
+
+main {
+  flex: 1;
+  padding: 15px;  
+}
+
+/* Typografia */
+h1, h2, h3 {
+  font-family: var(--fontti-otsikko);
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 40px; 
+  color: var(--valkoinen);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+h2 {
+  font-size: 30px; 
+  color: var(--paavari);
+}
+
+h3 {
+  font-size: 25px; 
+  color: var(--paavari);
+}
+
+.esittelyteksti {
+  font-family: var(--fontti-leipateksti);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--paavari);
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--paavari);
+    color: var(--valkoinen);
+    padding: 15px 20px;
+    position: relative;
+    flex-wrap: nowrap;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+#tunnus {
+  height: 45px;
+  width: auto;
+  min-width: 45px;
+  margin-right: 5px;
+}
+
+
+ /* Hampurilaisvalikko mobiililaitteilla */
+.menu-icon {
+  font-family: var(--fontti-otsikko);
+  font-size: 35px;
+  cursor: pointer;
+  display: block;
+  user-select: none;
+  position: relative;
+  z-index: 2;
+}
+
+/* Piilotettu checkbox valikon ohjaamiseen */
+#menu-toggle {
+  display: none;
+}
+
+/* Navigaatiovalikko */
+.menu {
+  list-style: none;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background: var(--paavari);
+  width: 180px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 0;
+  display: none; /* Oletuksena piilotettu, näytetään kun checkbox valittu */
+}
+
+/* Menu-linkit ja niiden tyylit */
+.menu li {
+  border-bottom: 1px solid var(--valkoinen);
+}
+
+.menu li:last-child {
+  border-bottom: none;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--valkoinen);
+  font-size: 20px;
+  display: block;
+  padding: 12px;
+}
+
+/* Näytetään valikko kun checkbox on valittu */
+#menu-toggle:checked ~ .menu {
+  display: block;
+}
+
+
+
+
+/* Hero-osio */
+.hero {
+    background-image: var(--tummennus), url("kuvat/taustakuva.jpg");
+    background-size: cover;
+    background-position: center;
+    color: var(--valkoinen);
+    text-align: center;
+    font-size: 20px;
+    padding: 80px 20px;
+    text-shadow: var(--tekstivarjo);
+  }
+
+  .hero h2 {
+    font-family: var(--fontti-otsikko);
+    color: var(--valkoinen);
+  }
+
+
+
+
+
+/* Reseptikorttien container */
+.reseptikortti-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-start;
+}
+/* Yksittäinen reseptikortti */
+.reseptikortti {
+    width: 280px;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s;
+    justify-content: flex-end;
+
+    /* Taustakuva */
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    color: var(--valkoinen);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.reseptikortti:hover {
+    transform: scale(1.05);
+}
+
+.reseptikortti h3 {
+    font-family: var(--fontti-otsikko);
+    font-size: 30px;
+    color: var(--valkoinen);
+    margin-bottom: 10px;
+    text-shadow: var(--tekstivarjo);
+}
+
+.reseptikortti p {
+    font-size: 20px;
+    color: var(--valkoinen);
+    margin: 0;
+    flex-grow: 1;
+    text-shadow: var(--tekstivarjo);
+}
+
+
+
+/*Reseptien kuvat ja tummennettu tausta*/
+.pasta-carbonara {
+    background-image: var(--tummennus),
+      url("kuvat/pastacarbonara.jpg");
+  }
+  
+  .kinuskikakku {
+    background-image: var(--tummennus),
+      url("kuvat/kinuskikakku.jpg");
+  }
+  
+  .kasvismunakas {
+    background-image: var(--tummennus),
+      url("kuvat/kasvismunakas.jpg");
+  }
+  
+  .avokado-toast {
+    background-image: var(--tummennus),
+      url("kuvat/avokadotoast.jpg");
+  }
+
+  .lohikeitto {
+    background-image: var(--tummennus),
+      url("kuvat/lohikeitto.jpg");
+  }
+  
+  .kanapasta {
+    background-image: var(--tummennus),
+      url("kuvat/kanapasta.jpg");
+  }
+
+  .marjasmoothie {
+    background-image: var(--tummennus),
+      url("kuvat/marjasmoothie.jpg");
+  }
+
+  .kaurapuuro {
+    background-image: var(--tummennus),
+      url("kuvat/kaurapuuro.jpg");
+  }
+
+  .suklaamousse {
+    background-image: var(--tummennus),
+      url("kuvat/suklaamousse.jpg");
+  }
+
+  .mustikkapiirakka {
+    background-image: var(--tummennus),
+      url("kuvat/mustikkapiirakka.jpg");
+  }
+
+  .tofuwok {
+    background-image: var(--tummennus),
+      url("kuvat/tofuwok.jpg");
+  }
+
+  .falafel {
+    background-image: var(--tummennus),
+      url("kuvat/falafel.jpg");
+  }
+
+  .vappumunkit {
+    background-image: var(--tummennus),
+      url("kuvat/vappumunkit.jpg");
+  }
+
+  .sima {
+    background-image: var(--tummennus),
+      url("kuvat/sima.jpg");
+  }
+
+  .tippaleivat {
+    background-image: var(--tummennus),
+      url("kuvat/tippaleivät.jpg");
+  }
+
+  
+/* Modaalit */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(7, 6, 6, 0.4);
+    color: var(--paavari);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: var(--taustavari);
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: scroll; /* mahdollistetaan vieritys */
+} 
+
+.modal h2 {
+  font-family: var(--fontti-otsikko);
+}
+
+.modal p {
+  font-family: var(--fontti-leipateksti);
+}
+
+.resepti-alaotsikko {
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 20px;
+  color: var(--paavari);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Palautelomakkeen container */
+.palaute-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.palaute-lomake {
+  background: var(--valkoinen);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+.palaute-container h2 {
+  font-family: var(--fontti-otsikko);
+  color: var(--paavari);
+  text-align: center;
+}
+
+.palaute-container p {
+  text-align: center;
+  font-family: var(--fontti-leipateksti);
+  color: var(--paavari);
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+/* Lomakkeen komponentit */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: var(--fontti-leipateksti);
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.laheta-nappi {
+  background-color: var(--paavari);
+  color: var(--valkoinen);
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.laheta-nappi:hover {
+  background-color: #3a5939;
+}
+
+.kiitos-viesti {
+  display: none;
+  background: var(--paavari);
+  padding: 20px;
+  border-radius: 8px;
+  text-align:center;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.kiitos-viesti * {
+  color: var(--valkoinen) !important;
+}
+
+
+/* Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  background-color: var(--paavari);
+  padding: 20px 40px;
+  border-top: 1px solid #ccc;
+  flex-wrap: wrap;
+  height: auto;
+  justify-content: space-between;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+}
+
+.footer-left {
+  text-align: left;
+  color: var(--valkoinen);
+}
+
+.footer-center {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-center a {
+  text-decoration: underline;
+  color: var(--valkoinen);
+  white-space: nowrap;
+}
+
+.footer-center a:hover {
+  text-decoration: underline;
+}
+
+
+/* Responsiivisuus */
+
+/* Mobiili - alle 600px näytöt */
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 24px;
+  }
+  
+  #tunnus {
+    height: 30px;
+    min-width: 30px;
+  }
+  
+  .menu-icon {
+    font-size: 30px;
+  }
+  
+  .menu {
+    top: 50px;
+    right: 5px;
+    width: 160px;
+  }
+  
+  .menu a {
+    font-size: 18px;
+    padding: 10px;
+  }
+  
+  .hero {
+    padding: 60px 15px;
+    font-size: 18px;
+  }
+  
+  .reseptikortti {
+    width: 100%;
+    height: 300px;
+  }
+  
+  .reseptikortti-container {
+    padding: 10px;
+    gap: 15px;
+  }
+  
+  .footer {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .footer-center {
+    gap: 10px;
+  }
+  
+  .footer-center a {
+    white-space: nowrap;
+    padding: 5px 0; 
+  }
+  .palaute-container {
+    padding: 0 15px;
+  }
+  
+  .palaute-lomake {
+    padding: 20px 15px;
+  }
+  
+  .modal-content {
+    width: 90%;
+    margin: 10% auto;
+  }
+}
+
+/* Tabletti - 601-1023px näytöt */
+@media only screen and (min-width: 601px) and (max-width: 1023px) {
+  h1 {
+    font-size: 32px;
+  }
+  
+  #tunnus {
+    height: 40px;
+    min-width: 40px;
+  }
+  
+  .menu {
+    width: 200px;
+  }
+  
+  .hero {
+    padding: 70px 20px;
+  }
+  
+  .reseptikortti {
+    width: calc(50% - 10px);
+    margin: 0;
+    flex-grow: 1;
+    max-width: calc(50% - 10px);
+  }
+  
+  .reseptikortti-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .footer {
+    padding: 20px 30px;
+  }
+  
+  .footer-center {
+    gap: 15px;
+  }
+  
+  .palaute-container {
+    max-width: 700px;
+  }
+}
+
+/* Isot näytöt - yli 1024px näytöt */
+@media only screen and (min-width: 1024px) {
+  .menu {
+    display: flex;
+    position: static;
+    background: none;
+    box-shadow: none;
+    width: auto;
+  }
+  
+  .menu li {
+    border: none;
+    padding: 0 15px;
+  }
+  
+  .menu a {
+    color: var(--valkoinen);
+  }
+  
+  .menu-icon {
+    display: none;
+  }
+  
+  .hero {
+    padding: 100px 40px;
+    font-size: 22px;
+  }
+  
+  .reseptikortti {
+    width: calc(33.333% - 20px);
+  }
+  
+  .footer {
+    padding: 25px 50px;
+  }
+  
+  .footer-center {
+    gap: 30px;
+  }
+  
+  .palaute-container {
+    max-width: 800px;
+  }
+}
+

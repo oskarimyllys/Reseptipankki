@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta name="author" content="Oskari">
+    <meta name="description" content="Reseptipankin nettisivut">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="reseptit, ruoanlaitto, ruokaohjeet, ruokaideat">
+    <meta name="robots" content="index, follow">
+
+    <title>Ota yhteyttä</title>
+    
+    <link rel="stylesheet" href="tyyli.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header ja navigaatio -->
+    <header>
+        <a href="index.html" class="logo-link">
+            <h1>
+               <img src="kuvat/logo.svg" alt="Reseptipankin logo" id="tunnus"> 
+                Reseptipankki
+            </h1>
+        </a>
+        <nav>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <ul class="menu">
+                <li><a href="index.html">Etusivu</a></li>
+                <li><a href="reseptit.html">Reseptit</a></li>
+                <li><a href="yhteys.html">Ota yhteyttä</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sivun pääsisältö: palautelomake -->
+    <main class="palaute-container">
+        <h2>Jätä palautteesi</h2>
+        <p>Arvostamme kaikkea palautetta! Kerro meille, mitä mieltä olet resepteistämme tai ehdota uusia reseptejä.</p>
+        
+        <form id="palaute-lomake" class="palaute-lomake">
+            <div class="form-group">
+                <label for="nimi">Nimi (valinnainen)</label>
+                <input type="text" id="nimi" placeholder="Nimi">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Sähköposti (valinnainen)</label>
+                <input type="email" id="email" placeholder="sähköposti@esimerkki.fi">
+            </div>
+            
+            <div class="form-group">
+                <label for="palaute">Palaute *</label>
+                <textarea id="palaute" required placeholder="Kirjoita palautteesi tähän..."></textarea>
+            </div>
+            
+            <input type="submit" name="laheta" value="Lähetä palaute" class="laheta-nappi">
+        </form>
+        
+        <div id="kiitos-viesti" class="kiitos-viesti">
+            <p>Kiitos palautteestasi! Arvostamme sitä suuresti.</p>
+        </div>
+    </main>
+
+    <!-- Footer, jossa copyright-tiedot ja navigaatiolinkit -->
+    <footer class="footer">
+        <div class="footer-left">
+          <p>&copy; 2025 Reseptipankki</p>
+        </div>
+        <div class="footer-center">
+          <a href="reseptit.html">Reseptit</a>
+          <a href="index.html">Etusivu</a>
+        </div>
+         <div class="footer-right"><!-- tyhjä --></div>
+      </footer>
+
+       <!-- Javascript toiminnallisuudet lomakkeen kästtelyyn -->
+    <script>
+        document.getElementById('palaute-lomake').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('kiitos-viesti').style.display = 'block';
+            document.getElementById('palaute-lomake').style.display = 'none';
+        });
+    </script>
+
+       
+    
+</body>
+</html>

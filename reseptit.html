@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta name="author" content="Oskari">
+    <meta name="description" content="Reseptipankin nettisivut">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="reseptit, ruoanlaitto, ruokaohjeet, ruokaideat">
+    <meta name="robots" content="index, follow">
+
+    <title>Reseptit</title>
+    
+    <link rel="stylesheet" href="tyyli.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header ja navigaatio -->
+    <header>
+        <a href="index.html" class="logo-link">
+            <h1>
+               <img src="kuvat/logo.svg" alt="Reseptipankin logo" id="tunnus"> 
+                Reseptipankki
+            </h1>
+        </a>
+        <nav>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <ul class="menu">
+                <li><a href="index.html">Etusivu</a></li>
+                <li><a href="reseptit.html">Reseptit</a></li>
+                <li><a href="yhteys.html">Ota yhteyttä</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sivun pääsisältö -->
+    <main>
+        <section>
+            <h2>Kaikki reseptit</h2>
+            <p class = "esittelyteksti">Selaa herkullisia reseptejä eri kategorioissa. Klikkaa reseptiä nähdäksesi ohjeet!</p>
+        </section>
+
+        <!-- Pääruokien reseptikategoria -->
+        <section class="reseptikategoria">
+            <h2>Pääruoat</h2>
+            <div class="reseptikortti-container">
+                <div class="reseptikortti pasta-carbonara" onclick="openModal('resepti1')">
+                    <h3>Pasta Carbonara</h3>
+                    <p>Kermaista pastaa ja pekonia italialaiseen tyyliin.</p>
+                </div>
+            
+                <div class="reseptikortti lohikeitto" onclick="openModal('resepti5')">
+                    <h3>Lohikeitto</h3>
+                    <p>Perinteinen suomalainen lohikeitto tuoreesta lohesta.</p>
+                </div>
+            
+                <div class="reseptikortti kanapasta" onclick="openModal('resepti6')">
+                    <h3>Kanapasta</h3>
+                    <p>Maukas pasta-annos kanafileestä ja tuoreista kasviksista.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Aamupalojen reseptikategoria -->
+        <section class="reseptikategoria">
+            <h2>Aamupalat</h2>
+            <div class="reseptikortti-container">
+                <div class="reseptikortti avokado-toast" onclick="openModal('resepti4')">
+                    <h3>Avokado-toast</h3>
+                    <p>Rapea leipä ja kermainen avokado – täydellinen aamuun.</p>
+                </div>
+                
+                <div class="reseptikortti marjasmoothie" onclick="openModal('resepti7')">
+                    <h3>Marjasmoothie</h3>
+                    <p>Ravintoisa ja virkistävä marjasekoitus.</p>
+                </div>
+                
+                <div class="reseptikortti kaurapuuro" onclick="openModal('resepti8')">
+                    <h3>Kaurapuuro</h3>
+                    <p>Täyttävä perinteinen kaurapuuro.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Jälkiruokien reseptikategoria -->
+        <section class="reseptikategoria">
+            <h2>Jälkiruoat</h2>
+            <div class="reseptikortti-container">
+                <div class="reseptikortti kinuskikakku" onclick="openModal('resepti2')">
+                    <h3>Kinuskikakku</h3>
+                    <p>Makea ja pehmeä kinuskikuorrutettu kakku.</p>
+                </div>
+                
+                <div class="reseptikortti suklaamousse" onclick="openModal('resepti9')">
+                    <h3>Suklaamousse</h3>
+                    <p>Kevyt ja ilmava suklaajälkiruoka.</p>
+                </div>
+                
+                <div class="reseptikortti mustikkapiirakka" onclick="openModal('resepti10')">
+                    <h3>Mustikkapiirakka</h3>
+                    <p>Kesäinen herkku tuoreista mustikoista.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Kasvisruokien reseptikategoria -->
+        <section class="reseptikategoria">
+            <h2>Kasvisruoat</h2>
+            <div class="reseptikortti-container">
+                <div class="reseptikortti kasvismunakas" onclick="openModal('resepti3')">
+                    <h3>Kasvismunakas</h3>
+                    <p>Pehmeä munakas tuoreilla kasviksilla ja fetajuustolla.</p>
+                </div>
+                
+                <div class="reseptikortti tofuwok" onclick="openModal('resepti11')">
+                    <h3>Tofuwok</h3>
+                    <p>Värikäs ja maukas tofuwok.</p>
+                </div>
+                
+                <div class="reseptikortti falafel" onclick="openModal('resepti12')">
+                    <h3>Falafel</h3>
+                    <p>Kreikkalaiset kikhernepyörykät.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sesonkikohtaisten reseptien kategoria -->
+        <section class="reseptikategoria">
+            <h2>Sesongin reseptit</h2>
+            <div class="reseptikortti-container">
+                <div class="reseptikortti vappumunkit" onclick="openModal('resepti13')">
+                    <h3>Vappumunkit</h3>
+                    <p>Perinteiset suomalaiset vappumunkit, jotka ovat pehmeitä, sokerikuorrutettuja ja täydellisiä vappujuhlaan.</p>
+                </div>
+                
+                <div class="reseptikortti sima" onclick="openModal('resepti14')">
+                    <h3>Sima</h3>
+                    <p>Kotitekoinen sima, virkistävä vappujuhlan perinnejuoma, joka valmistetaan sitruunasta ja fariinisokerista.</p>
+                </div>
+                
+                <div class="reseptikortti tippaleivat" onclick="openModal('resepti15')">
+                    <h3>Tippaleivät</h3>
+                    <p>Rapeat ja kultaiset tippaleivät, jotka ovat keskeinen osa suomalaista vappuperinnettä.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modaalit resepteille -->
+
+         <!-- Pasta carbonana-modaali -->
+        <div id="resepti1" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('resepti1')">&times;</span>
+                <h2>Pasta Carbonara</h2>
+                <p class="resepti-alaotsikko">Ainekset:</p>
+                <ul>
+                    <li>200g pastaa</li>
+                    <li>100g pekonia</li>
+                    <li>2 kananmunaa</li>
+                    <li>50g juustoa</li>
+                </ul>
+                <p class="resepti-alaotsikko">Valmistus:</p>
+                <ol>
+                    <li>Keitä pasta suolatussa vedessä.</li>
+                    <li>Paista pekoni rapsakaksi.</li>
+                    <li>Sekoita pasta, pekoni ja munaseos yhteen.</li>
+                </ol>
+                <p class="resepti-alaotsikko">Valmistusaika:</p>
+                <ul>
+                    <li>Alle 30min</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Kinuskikakku-modaali -->
+        <div id="resepti2" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('resepti2')">&times;</span>
+                <h2>Kinuskikakku</h2>
+                <p class="resepti-alaotsikko">Ainekset:</p>
+                <ul>
+                    <li>1 dl vehnäjauhoja</li>
+                    <li>2 dl sokeria</li>
+                    <li>4 kananmunaa</li>
+                    <li>1 dl perunajauhoja</li>
+                    <li>1 tl leivinjauhetta</li>
+                </ul>
+                <p class="resepti-alaotsikko">Valmistus:</p>
+                <ol>
+                    <li>Valmista taikina ja paista kakkupohja.</li>
+                    <li>Valmista kinuskikuorrutus ja levitä se kakun päälle.</li>
+                </ol>
+                <p class="resepti-alaotsikko">Valmistusaika:</p>
+                <ul>
+                    <li>2h</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Kasvismunakas-modaali -->
+        <div id="resepti3" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('resepti3')">&times;</span>
+                <h2>Kasvismunakas</h2>
+                <p class="resepti-alaotsikko">Ainekset:</p>
+                <ul>
+                    <li>2 kananmunaa</li>
+                    <li>1/2 paprika, pilkottuna</li>
+                    <li>1/4 sipuli, pilkottuna</li>
+                    <li>1/2 dl fetajuustoa (valinnainen)</li>
+                    <li>Suolaa ja pippuria maun mukaan</li>
+                </ul>
+                <p class="resepti-alaotsikko">Valmistus:</p>
+                <ol>
+                    <li>Vatkaa munat ja mausta suolalla ja pippurilla.</li>
+                    <li>Kuullota sipuli ja paprika pannulla, kunnes ne pehmenevät.</li>
+                    <li>Kaada munaseos pannulle ja paista, kunnes munakas on kiinteä ja saanut väriä.</li>
+                    <li>Lisää halutessasi fetajuustoa ennen tarjoilua ja nauti!</li>
+                </ol>
+                <p class="resepti-alaotsikko">Valmistusaika:</p>
+                <ul>
+                    <li>10min</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Avokado-toast-modaali -->
+        <div id="resepti4" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('resepti4')">&times;</span>
+                <h2>Avokado-toast</h2>
+                <p class="resepti-alaotsikko">Ainekset:</p>
+                <ul>
+                    <li>1 kypsä avokado</li>
+                    <li>2 viipaletta täysjyväleipää</li>
+                    <li>1 rkl oliiviöljyä</li>
+                    <li>Suolaa ja pippuria maun mukaan</li>
+                    <li>Sitruunamehua (valinnainen)</li>
+                </ul>
+                <p class="resepti-alaotsikko">Valmistus:</p>
+                <ol>
+                    <li>Paahda leipäviipaleet.</li>
+                    <li>Muussaa avokado haarukalla ja sekoita joukkoon oliiviöljy, suola, pippuri ja halutessasi vähän sitruunamehua.</li>
+                    <li>Levitä avokadoseos paahdetulle leivälle ja nauti heti!
+                    </li>
+                </ol>
+                <p class="resepti-alaotsikko">Valmistusaika:</p>
+                <ul>
+                    <li>Alle 10min</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Lohikeitto-modaali -->
+        <div id="resepti5" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('resepti5')">&times;</span>
+                <h2>Lohikeitto</h2>
+                <p class="resepti-alaotsikko">Ainekset:</p>
+                <ul>
+                    <li>n. 500 g pala lohifileetä</li>
+                    <li>1 1/2l vettä</li>
+                    <li>2 kalaliemikuutiota</li>
+                    <li>6-8 perunaa</li>
+                    <li>1 porkkana</li>
+                    <li>1 pieni sipuli</li>
+                    <li>2dl kuohukermaa</li>
+                    <li>Suolaa ja valkopippuria maun mukaan</li>
+                    <li>Tuoretta tilliä koristeeksi</li>
+                </ul>
+                <p class="resepti-alaotsikko">Valmistus:</p>
+                <ol>
+                    <li>Kuori ja pilko perunat, porkkana ja sipuli.</li>
+                    <li>Kiehtauta vesi kattilassa, lisää kalaliemikutiot.</li>
+                    <li>Lisää perunat, porkkana ja sipuli kiehuvaan liemeen.
+                        → Keitä noin 10–15 minuuttia, kunnes perunat pehmenevät.</li>
+                    <li>Leikkaa lohi suupaloiksi.</li>
+                    <li>Lisää lohipalat kattilaan ja anna kypsyä noin 5–7 minuuttia.</li>
+                    <li>Kaada joukkoon kerma, mausta suolalla ja valkopippurilla.</li>
+                    <li>Ripottele pinnalle silputtua tilliä ja tarjoa lämpimänä!</li>
+                </ol>
+                <p class="resepti-alaotsikko">Valmistusaika:</p>
+                <ul>
+                    <li>40min</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Kanapasta-modaali -->
+        <div id="resepti6" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('resepti6')">&times;</span>
+                <h2>Kanapasta</h2>
+                <p class="resepti-alaotsikko">Ainekset:</p>
+                <ul>
+                    <li>300g kananfileesuikaleita</li>
+                    <li>300g pastaa (esim. penne tai fusilli)</li>
+                    <li>1 sipuli</li>
+                    <li>2 valkosipulinkynttä</li>
+                    <li>1 paprika</li>
+                    <li>2dl ruokakermaa</li>
+                    <li>1rkl tomaattipyreetä</li>
+                    <li>1tl paprikajauhetta</li>
+                    <li>Suolaa ja pippuria maun mukaan</li>
+                    <li>Juustoraastetta ja tuoretta basilikaa koristeluun</li>
+                </ul>
+                <p class="resepti-alaotsikko">Valmistus:</p>
+                <ol>
+                    <li>Keitä pasta pakkauksen ohjeen mukaan ja valuta.</li>
+                    <li>Silppua sipuli ja valkosipuli, kuutioi paprika.</li>
+                    <li>Kuumenna öljy pannulla ja kuullota sipulit.</li>
+                    <li>Lisää kanafileesuikaleet ja ruskista ne.</li>
+                    <li>Lisää paprika, tomaattipyree ja mausteet.</li>
+                    <li>Kaada joukkoon ruokakerma ja anna kiehahtaa.</li>
+                    <li>Sekoita valutettu pasta kastikkeen joukkoon.</li>
+                    <li>Tarjoile heti juustoraasteella ja basilikalla.
+
+                    </li>
+                </ol>
+                <p class="resepti-alaotsikko">Valmistusaika:</p>
+                <ul>
+                    <li>25-30min</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Marjasmoothie-modaali -->
+        <div id="resepti7" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('resepti7')">&times;</span>
+                <h2>Marjasmoothie</h2>
+                <p class="resepti-alaotsikko">Ainekset:</p>
+                <ul>
+                    <li>2 dl pakastemarjoja (esim. mansikka, mustikka, vadelma)</li>
+                    <li>1 banaani</li>
+                    <li>2 dl maustamatonta jogurttia tai maitoa (tai kauramaitoa)</li>
+                    <li>1 tl hunajaa (halutessa)</li>
+                </ul>
+                <p class="resepti-alaotsikko">Valmistus:</p>
+                <ol>
+                    <li>Laita kaikki ainekset tehosekoittimeen.</li>
+                    <li>Sekoita tasaiseksi.</li>
+                    <li>Kaada lasiin ja nauti heti!</li>
+                </ol>
+                <p class="resepti-alaotsikko">Valmistusaika:</p>
+                <ul>
+                    <li>Alle 5min</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Kaurapuuro-modaali -->
+        <div id="resepti8" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('resepti8')">&times;</span>
+                <h2>Kaurapuuro</h2>
+                <p class="resepti-alaotsikko">Ainekset:</p>
+                <ul>
+                    <li>1dl kaurahiutaleita</li>
+                    <li>2dl vettä tai maitoa</li>
+                    <li>Ripaus suolaa</li>
+                </ul>
+                <p class="resepti-alaotsikko">Valmistus:</p>
+                <ol>
+                    <li>Mittaa ainekset kattilaan.</li>
+                    <li>Kuumenna kiehuvaksi ja keitä miedolla lämmöllä n. 5 minuuttia, välillä sekoittaen.</li>
+                    <li>Mausta suolalla.</li>
+                </ol>
+                <p class="resepti-alaotsikko">Valmistusaika:</p>
+                <ul>
+                    <li>Noin 5min</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Suklaamousse-modaali -->
+        <div id="resepti9" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('resepti9')">&times;</span>
+                <h2>Suklaamousse</h2>
+                <p class="resepti-alaotsikko">Ainekset:</p>
+                <ul>
+                    <li>200 g tummaa suklaata (n. 50–70 % kaakaota)</li>
+                    <li>3 kananmunaa (valkuaiset ja keltuaiset erotellaan)</li>
+                    <li>2 dl vispikermaa</li>
+                    <li>Ripaus suolaa</li>
+                </ul>
+                <p class="resepti-alaotsikko">Valmistus:</p>
+                <ol>
+                    <li>Sulata suklaa varovasti vesihauteessa tai mikrossa. Anna jäähtyä hetki.</li>
+                    <li>Vatkaa kermavaahto pehmeäksi vaahdoksi.</li>
+                    <li>Erottele munat ja vatkaa valkuaiset kovaksi vaahdoksi ripauksella suolaa.</li>
+                    <li>Sekoita sulatettu suklaa keltuaisten kanssa.</li>
+                    <li>Lisää suklaaseokseen varovasti kermavaahto ja lopuksi valkuaisvaahto.</li>
+                    <li>Jaa mousse annoskulhoihin ja laita jääkaappiin vähintään 1 tunniksi.</li>
+                </ol>
+                <p class="resepti-alaotsikko">Valmistusaika:</p>
+                <ul>
+                    <li>15min + 1h hyytymiseen</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Mustikkapiirakka-modaali -->
+        <div id="resepti10" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('resepti10')">&times;</span>
+                <h2>Mustikkapiirakka</h2>
+                <p class="resepti-alaotsikko">Pohja:</p>
+                <ul>
+                    <li>100 g voita</li>
+                    <li>1 dl sokeria</li>
+                    <li>1 kananmuna</li>
+                    <li>2 dl vehnäjauhoja</li>
+                    <li>1 tl leivinjauhetta</li>
+                </ul>
+                <p class="resepti-alaotsikko">Täyte:</p>
+                <ul>
+                    <li>2–3 dl mustikoita (tuoreita tai pakasteesta)</li>
+                    <li>1 dl kermaviiliä</li>
+                    <li>1 kananmuna</li>
+                    <li>0,5 dl sokeria</li>
+                    <li>1 tl vaniljasokeria</li>
+                </ul>
+                <p class="resepti-alaotsikko">Valmistus:</p>
+                <ol>
+                    <li>Sulata voi ja sekoita joukkoon sokeri sekä kananmuna.</li>
+                    <li>Lisää jauhot ja leivinjauhe. Painele taikina piirakkavuoan pohjalle ja reunoille.</li>
+                    <li>Ripottele mustikat pohjan päälle.</li>
+                    <li>Sekoita täytteen ainekset ja kaada mustikoiden päälle.</li>
+                    <li>Paista 200 °C uunissa noin 30 minuuttia, kunnes pinta on kauniin kullanruskea.</li>
+                    <li>Anna jäähtyä ja tarjoa esimerkiksi vaniljakastikkeen tai -jäätelön kanssa.</li>
+                </ol>
+                <p class="resepti-alaotsikko">Valmistusaika:</p>
+                <ul>
+                    <li>45min</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tofuwok-modaali -->
+        <div id="resepti11" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('resepti11')">&times;</span>
+                <h2>Tofuwok</h2>
+                <p class="resepti-alaotsikko">Ainekset:</p>
+                <ul>
+                    <li>200 g kiinteää tofua</li>
+                    <li>1 rkl öljyä (esim. seesamiöljy tai rypsiöljy)</li>
+                    <li>1 pieni sipuli, pilkottuna</li>
+                    <li>1 paprika, suikaloituna</li>
+                    <li>1 porkkana, ohuina suikaleina</li>
+                    <li>100 g parsakaalia tai muita vihanneksia (esim. herkkusieniä)</li>
+                    <li>2 rkl soijakastiketta</li>
+                    <li>1 rkl riisiviinietikkaa (valinnainen)</li>
+                    <li>1/2 tl chilihiutaleita (valinnainen)</li>
+                    <li>Suolaa ja pippuria maun mukaan</li>
+                    <li>Tuoretta korianteria tai kevätsipulia koristeluun (valinnainen)</li>
+                </ul>
+                <p class="resepti-alaotsikko">Valmistus:</p>
+                <ol>
+                    <li>Leikkaa tofu pieniksi kuutioiksi ja kuivaa ne talouspaperilla, jotta ylimääräinen neste poistuu.</li>
+                    <li>Kuumenna öljy wokkipannussa tai suuressa paistokasarissa keskilämmöllä.</li>
+                    <li>Lisää tofu ja paista, kunnes se saa kauniin kullanruskean värin. Siirrä tofut lautaselle ja jätä syrjään.</li>
+                    <li>Lisää pannulle hieman lisää öljyä, jos tarpeen. Lisää pilkottu sipuli ja kuullota sitä muutama minuutti.</li>
+                    <li>Lisää paprika, porkkana ja muut vihannekset, ja paista, kunnes ne pehmenevät, mutta ovat vielä rapeita.</li>
+                    <li>Lisää takaisin paistettu tofu, soijakastike, riisiviinietikka (jos käytät) ja chilihiutaleet. Sekoita hyvin ja paista vielä muutama minuutti, jotta maut sekoittuvat.</li>
+                    <li>Mausta suolalla ja pippurilla maun mukaan.</li>
+                    <li>Tarjoile tuoreen korianterin tai kevätsipulin kera.</li>
+                </ol>
+                <p class="resepti-alaotsikko">Valmistusaika:</p>
+                <ul>
+                    <li>20-30min</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Falafel-modaali -->
+        <div id="resepti12" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('resepti12')">&times;</span>
+                <h2>Falafel</h2>
+                <p class="resepti-alaotsikko">Ainekset:</p>
+                <ul>
+                    <li>1 tölkki (noin 400 g) kikherneitä (tai 250 g kuivattuja, liotettuja kikherneitä)</li>
+                    <li>1 pieni sipuli, pilkottuna</li>
+                    <li>2 valkosipulinkynttä, murskattuna</li>
+                    <li>1/2 tl kuminaa</li>
+                    <li>1/2 tl suolaa</li>
+                    <li>2-3 rkl vehnäjauhoja</li>
+                    <li>Öljyä paistamiseen (esim. rypsiöljyä)</li>
+                </ul>
+                <p class="resepti-alaotsikko">Valmistus:</p>
+                <ol>
+                    <li>Huuhtele ja valuta kikherneet hyvin.</li>
+                    <li>Laita kikherneet, sipuli, valkosipuli, kumina ja suola tehosekoittimeen tai monitoimikoneeseen. Sekoita, kunnes seos on hienoksi jauhautunut mutta ei täysin sileää. Voit jättää seokseen hieman rakennetta.</li>
+                    <li>Lisää vehnäjauho ja sekoita hyvin. Jos taikina on liian löysää, lisää vähän jauhoja.</li>
+                    <li>Muotoile taikinasta pieniä pyöryköitä tai litteitä palloja käsin.</li>
+                    <li>Kuumenna öljy pannussa keskilämmöllä. Paista falafel-pyöryköitä noin 3–4 minuuttia per puoli, kunnes ne ovat kullanruskeita ja rapeita.</li>
+                </ol>
+                <p class="resepti-alaotsikko">Valmistusaika:</p>
+                <ul>
+                    <li>20-30min</li>
+                </ul>
+            </div>
+        </div>
+
+        <!--- Vappunmunkki-modaali -->
+        <div id="resepti13" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('resepti13')">&times;</span>
+                <h2>Vappumunkit</h2>
+                <p class="resepti-alaotsikko">Ainekset:</p>
+                <ul>
+                    <li>500 g vehnäjauhoja</li>
+                    <li>50 g sokeria</li>
+                    <li>1 tl kardemummaa</li>
+                    <li>25 g tuorehiivaa (tai 1 pussi kuivahiivaa)</li>
+                    <li>2 dl maitoa</li>
+                    <li>75 g voita (sulatettuna)</li>
+                    <li>1/2 dl sokeria (pyörittämiseen)</li>
+                    <li>1 litra öljyä (paistamiseen)</li>
+                </ul>
+                <p class="resepti-alaotsikko">Valmistus:</p>
+                <ol>
+                    <li>Lämmitä maito kädenlämpöiseksi ja liuota siihen hiiva ja sokeri. Sekoita hyvin.</li>
+                    <li>Lisää sulatettu voi, kardemumma ja vehnäjauhot. Alusta taikina pehmeäksi ja kimmoisaksi.</li>
+                    <li>Peitä taikina liinalla ja anna sen nousta noin 1 tunti, kunnes se on kaksinkertaistunut.</li>
+                    <li>Kumoa taikina jauhotetulle pinnalle ja vaivaa se tasaiseksi. Kauli taikina noin 1 cm paksuiseksi ja ota pyöreitä muotoja.</li>
+                    <li>Anna munkkien nousta liinan alla vielä noin 20 minuuttia.</li>
+                    <li>Kuumenna öljy paistokasarissa noin 170–180 °C. Paista munkkeja muutama kerrallaan, noin 3–4 minuuttia per puoli.</li>
+                    <li>Nosta munkit talouspaperille ja pyöritä sokerissa.</li>
+                </ol>
+                <p class="resepti-alaotsikko">Valmistusaika:</p>
+                <ul>
+                    <li>2 - 2,5 tuntia</li>
+                </ul>
+            </div>
+        </div>
+
+        <!--- Sima-modaali -->
+        <div id="resepti14" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('resepti14')">&times;</span>
+                <h2>Sima</h2>
+                <p class="resepti-alaotsikko">Ainekset:</p>
+                <ul>
+                    <li>1 litra vettä</li>
+                    <li>1 dl sokeria</li>
+                    <li>1 dl fariinisokeria</li>
+                    <li>1/2 sitruuna</li>
+                    <li>1/4 tl kuivahiivaa</li>
+                    <li>1 rkl ruskeaa siirappia (valinnainen)</li>
+                    <li>1/2 dl raastettua sitruunankuorta (valinnainen)</li>
+                </ul>
+                <p class="resepti-alaotsikko">Valmistus:</p>
+                <ol>
+                    <li>Keitä vesi kattilassa ja lisää sokerit (valkoinen sokeri ja fariinisokeri). Sekoita, kunnes sokerit liukenevat.</li>
+                    <li>Purista sitruunan mehu veteen ja lisää myös sitruunan kuorta, jos käytät sitä.</li>
+                    <li>Jäähdytä seos haaleaksi ja lisää kuivahiiva. Sekoita hyvin ja jätä seos huoneenlämpöön noin 12–24 tunniksi, jotta maku kehittyy ja hiiva ehtii käydä.</li>
+                    <li>Siivilöi sima pois, jotta sitruunan kuoret ja hiiva jäävät pois.</li>
+                    <li>Pullota sima puhtaisiin pulloihin ja lisää jokaiseen pullolliseen muutama rusina. Ne nousevat pintaan, kun sima on valmis juotavaksi.</li>
+                    <li>Anna siman jäähtyä ja fermentoitua kylmässä noin 1–2 päivää ennen tarjoilua.</li>
+                </ol>
+                <p class="resepti-alaotsikko">Valmistusaika:</p>
+                <ul>
+                    <li>30-40min + 2-3vrk</li>
+                </ul>
+            </div>
+        </div>
+
+        <!--- Tippaleipä-modaali -->
+        <div id="resepti15" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('resepti15')">&times;</span>
+                <h2>Tippaleivät</h2>
+                <p class="resepti-alaotsikko">Ainekset:</p>
+                <ul>
+                    <li>2,5 dl maitoa</li>
+                    <li>1 dl vettä</li>
+                    <li>50 g voita</li>
+                    <li>2 rkl sokeria</li>
+                    <li>4 dl vehnäjauhoja</li>
+                    <li>2 kananmunaa</li>
+                    <li>1 tl leivinjauhetta</li>
+                    <li>Öljyä paistamiseen</li>
+                    <li>Tomusokeria koristeluun</li>
+                </ul>
+                <p class="resepti-alaotsikko">Valmistus:</p>
+                <ol>
+                    <li>Lämmitä maito, vesi, voi, suola ja sokeri kattilassa.</li>
+                    <li>Lisää jauhot ja sekoita, kunnes taikina irtoaa kattilasta. Anna jäähtyä.</li>
+                    <li>Lisää kananmunat, sekoita ja lisää leivinjauhe.</li>
+                    <li>Kuumenna öljy 180 °C:ssa ja pursota taikina öljyyn. Paista kullanruskeiksi.</li>
+                    <li>Siivilöi tomusokeria päälle ja tarjoile.</li>
+                </ol>
+                <p class="resepti-alaotsikko">Valmistusaika:</p>
+                <ul>
+                    <li>Noin 1 tunti</li>
+                </ul>
+            </div>
+        </div>
+
+
+      </main>
+
+       <!-- Footer, jossa copyright-tiedot ja navigaatiolinkit -->
+      <footer class="footer">
+        <div class="footer-left">
+          <p>&copy; 2025 Reseptipankki</p>
+        </div>
+        <div class="footer-center">
+          <a href="index.html">Etusivu</a>
+          <a href="yhteys.html">Ota yhteyttä</a>
+        </div>
+        <div class="footer-right"><!-- tyhjä --></div>
+      </footer>
+
+      <!-- Javascript toiminnallisuudet modaalien avaamiseen ja sulkemiseen -->
+      <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = "block";
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+    
+    </script>
+</body>
+</html>
